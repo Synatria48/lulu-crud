@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Page Web</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      footer {
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/static/BANNER NEW.png"
+            style="width: 500px"
+            alt="Facebook Logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#profil">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#publikasi">Publikasi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#layanan-publik">Layanan Publik</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#syarat-perizinan">Syarat Perizinan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#faq">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="container">
+      <h2>Formulir Data</h2>
+      <form enctype="multipart/form-data">
+        <div class="row">
+          <!-- Kolom 1 -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nama">Nama:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nama"
+                placeholder="Masukkan Nama"
+              />
+            </div>
+            <div class="form-group">
+              <label for="nim">NIK:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nik"
+                maxlength="12"
+                placeholder="Max 12 karakter"
+              />
+            </div>
+            <div class="form-group">
+              <label for="tanggalLahir">Tanggal Lahir:</label>
+              <input type="date" class="form-control" id="tanggalLahir" />
+            </div>
+            <div class="form-group">
+              <label for="alamat">Alamat:</label>
+              <textarea
+                class="form-control"
+                id="alamat"
+                placeholder="Masukkan Alamat"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="provinsi">Provinsi:</label>
+              <select class="form-control" id="provinsi">
+                <option>-- Pilih Provinsi --</option>
+                <!-- Tambahkan opsi provinsi sesuai kebutuhan -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="kabupaten">Kabupaten/Kota:</label>
+              <select class="form-control" id="kabupaten">
+                <option>-- Pilih Kabupaten/Kota --</option>
+                <!-- Tambahkan opsi kabupaten/kota sesuai kebutuhan -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="kecamatan">Kecamatan:</label>
+              <select class="form-control" id="kecamatan">
+                <option>-- Pilih Kecamatan --</option>
+                <!-- Tambahkan opsi kecamatan sesuai kebutuhan -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Kolom 2 -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nomorHp">Nomor HP:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nomorHp"
+                placeholder="Masukkan Nomor HP"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Masukkan Email"
+              />
+            </div>
+            <div class="form-group">
+              <label>Jenis Kelamin:</label>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="pria"
+                  name="jenisKelamin"
+                  value="pria"
+                />
+                <label class="form-check-label" for="pria">Pria</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="wanita"
+                  name="jenisKelamin"
+                  value="wanita"
+                />
+                <label class="form-check-label" for="wanita">Wanita</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tingkatPendidikan">Tingkat Pendidikan:</label>
+              <select class="form-control" id="tingkatPendidikan">
+                <option value="">-- Pilih Tingkat Pendidikan --</option>
+                <option value="SD">SD Sederajat</option>
+                <option value="SMP">SMP Sederajat</option>
+                <option value="SMA">SMA/K Sederajat</option>
+                <option value="D3">D3 Sederajat</option>
+                <option value="S1">S1 Sederajat</option>
+                <option value="S2">S2 Sederajat</option>
+                <option value="S3">S3 Sederajat</option>
+                <!-- Tambahkan opsi tingkat pendidikan sesuai kebutuhan -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="uploadFoto">Upload Foto:</label>
+              <input type="file" class="form-control-file" id="uploadFoto" />
+            </div>
+            <div class="form-group">
+              <label for="uploadDokumen">Upload Dokumen:</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="uploadDokumen"
+                multiple
+              />
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="pernyataanKebenaran"
+              />
+              <label class="form-check-label" for="pernyataanKebenaran"
+                >Saya menyatakan bahwa data yang saya berikan adalah
+                benar.</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Submit dan Reset -->
+        <div class="text-right">
+          <button type="button" id="submit" class="btn btn-primary">
+            Submit
+          </button>
+          <button type="reset" id="reset" class="btn btn-secondary">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-dark mt-5">
+      <div class="container">
+        <div class="row mt-4 mb-4">
+          <div class="col-md-5">
+            <div style="display: flex; align-items: center">
+              <img
+                src="/static/DJPT besinergi.png"
+                style="width: 50px; margin-right: 10px"
+                alt="DJPT Logo"
+              />
+              <div>
+                <p class="mb-0">
+                  Hak cipta &copy; 2023 Ditjen Perikanan Tangkap
+                </p>
+                <span>Kementerian Kelautan dan Perikananan</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 text-right">
+            <a href="https://goo.gl/maps/FvHM4DwtgAa8frXr7" target="_blank"
+              ><img
+                src="/static/google-maps.png"
+                style="width: 50px"
+                alt="Sosial Media"
+            /></a>
+            <a href="https://www.instagram.com/djpt_kkp/" target="_blank"
+              ><img
+                src="/static/instagram.png"
+                style="width: 50px"
+                alt="Sosial Media"
+            /></a>
+            <a href="https://twitter.com/djpt_kkp" target="_blank"
+              ><img
+                src="/static/twitter.png"
+                style="width: 50px"
+                alt="Sosial Media"
+            /></a>
+            <a
+              href="https://www.youtube.com/c/ditjenperikanantangkap"
+              target="_blank"
+              ><img
+                src="/static/youtube.png"
+                style="width: 50px"
+                alt="Sosial Media"
+            /></a>
+            <a href="https://wa.me/628119550888" target="_blank"
+              ><img
+                src="/static/whatsapp.png"
+                style="width: 50px"
+                alt="Sosial Media"
+            /></a>
+            <a href="mailto:pit@kkp.go.id" target="_blank"
+              ><img
+                src="/static/gmail.png"
+                style="width: 50px"
+                alt="Sosial Media"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript untuk Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/static/preload.js"></script>
+    <script src="/static/main.js"></script>
+  </body>
+</html>
