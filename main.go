@@ -12,10 +12,6 @@ import (
 	crud "github.com/lulu-crud/CRUD"
 )
 
-func init() {
-	crud.InitDB()
-}
-
 // Render HTML
 func renderHTML(c echo.Context, code int, name string, data interface{}) error {
 	return c.Render(code, name, data)
@@ -42,10 +38,13 @@ func main() {
 		templatesDir: "pages",
 	}
 
+	sql := crud.InitDB()
+	defer sql.Close()
+
 	e.GET("/", index)
 
 	e.GET("/users", crud.ListUsers)
-	e.POST("/users", crud.CreateUser)
+	e.POST("/users-create", crud.CreateUser)
 
-	e.Start(":8080")
+	e.Start(":9000")
 }

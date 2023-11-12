@@ -3,34 +3,17 @@ $(document).ready(function() {
     PopulateProvinces();
 
     $('#submit').click(function() {
-        var formData = {};
 
-        formData.nama = $('#nama').val();
-        formData.nik = $('#nik').val();
-        formData.tanggalLahir = $('#tanggalLahir').val();
-        formData.alamat = $('#alamat').val();
-
-        formData.provinsi = $('#provinsi :selected').text();
-        formData.kabupaten = $('#kabupaten :selected').text();
-        formData.kecamatan = $('#kecamatan :selected').text();
-
-        formData.nomorHp = $('#nomorHp').val();
-        formData.email = $('#email').val();
-
-        formData.jenisKelamin = $('input[name="jenisKelamin"]:checked').val();
-
-        formData.tingkatPendidikan = $('#tingkatPendidikan').val();
-
-        formData.uploadFoto = $('#uploadFoto')[0].files[0];
-        formData.uploadDokumen = $('#uploadDokumen')[0].files;
-
-        formData.pernyataanKebenaran = $('#pernyataanKebenaran').prop('checked');
-
-        if (!formData.pernyataanKebenaran) {
+        let pernyataanKebenaran = $('#pernyataanKebenaran').prop('checked');
+        let formData = new FormData($('#multiple_section_form')[0])
+        
+        if (!pernyataanKebenaran) {
         alert("MOHON CEKLIS DULU PERNYATAANNYA")
         } else {
+            console.log(formData);
+
             $.ajax({
-                url: '/users',
+                url: '/users-create',
                 type: 'POST',
                 data: formData,
                 contentType: false,
@@ -66,34 +49,34 @@ $(document).ready(function() {
         var select = $('#kabupaten');
         select.empty();
 
-        if ($('#provinsi :selected').val() == "") {
+        if ($('#provinsi :selected').attr("data_id") == "") {
             select.empty();
             select.append($('<option>', {
                 value: '',
                 text: '-- Pilih Kabupaten/Kota --'
-            }));
+            }).attr('data_id', ''));
 
             var select2 = $('#kecamatan');
             select2.empty();
             select2.append($('<option>', {
                 value: '',
                 text: '-- Pilih Kecamatan --'
-            }));
+            }).attr('data_id', ''));
 
             return;
         }
 
-        $.getJSON(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${$('#provinsi :selected').val()}.json`, function (data) {
+        $.getJSON(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${$('#provinsi :selected').attr("data_id")}.json`, function (data) {
             select.append($('<option>', {
                 value: '',
                 text: '-- Pilih Kabupaten/Kota --'
-            }));
+            }).attr('data_id', ''));
 
             $.each(data, function (index, regencies) {
                 select.append($('<option>', {
-                    value: regencies.id,
+                    value: regencies.name,
                     text: regencies.name
-                }));
+                }).attr('data_id', regencies.id));
             });
         });
     });
@@ -102,25 +85,25 @@ $(document).ready(function() {
         var select = $('#kecamatan');
         select.empty();
 
-        if ($('#kabupaten :selected').val() == "") {
+        if ($('#kabupaten :selected').attr("data_id") == "") {
             select.empty();
             select.append($('<option>', {
                 value: '',
                 text: '-- Pilih Kecamatan --'
-            }));
+            }).attr('data_id', ''));
 
             return;
         }
 
-        $.getJSON(`https://www.emsifa.com/api-wilayah-indonesia/api/districts/${$('#kabupaten :selected').val()}.json`, function (data) {
+        $.getJSON(`https://www.emsifa.com/api-wilayah-indonesia/api/districts/${$('#kabupaten :selected').attr("data_id")}.json`, function (data) {
             select.append($('<option>', {
                 value: '',
                 text: '-- Pilih Kecamatan --'
-            }));
+            }).attr('data_id', ''));
 
             $.each(data, function (index, district) {
                 select.append($('<option>', {
-                    value: district.id,
+                    value: district.name,
                     text: district.name
                 }));
             });

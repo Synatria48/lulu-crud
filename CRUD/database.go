@@ -1,6 +1,7 @@
 package crud
 
 import (
+	"database/sql"
 	"fmt"
 
 	"gorm.io/driver/mysql"
@@ -9,10 +10,10 @@ import (
 
 var db *gorm.DB
 
-func InitDB() {
+func InitDB() *sql.DB {
 	var err error
 	// db, err = gorm.Open("mysql", "username:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local")
-	db, err = gorm.Open(mysql.Open("user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"), &gorm.Config{})
+	db, err = gorm.Open(mysql.Open("lulu:lulu123@tcp(localhost:3306)/db_lulu?charset=utf8mb4&parseTime=True&loc=Local"), &gorm.Config{})
 	if err != nil {
 		fmt.Println("Error connecting to database:", err)
 		panic("Failed to connect to database")
@@ -23,8 +24,9 @@ func InitDB() {
 		fmt.Println("Error connecting to database:", err)
 		panic("Failed to connect to database")
 	}
-	defer sql.Close()
 
 	// AutoMigrate will attempt to automatically migrate the schema, creating the table "users" if it doesn't exist
 	db.AutoMigrate(&User{})
+
+	return sql
 }

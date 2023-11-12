@@ -6,13 +6,13 @@ function PopulateProvinces() {
         select.append($('<option>', {
             value: '',
             text: '-- Pilih Provinsi --'
-        }));
+        }).attr('data_id', ''));
 
         $.each(data, function (index, province) {
         select.append($('<option>', {
-            value: province.id,
+            value: province.name,
             text: province.name
-        }));
+        }).attr('data_id', province.id));
         });
     });
 }

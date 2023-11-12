@@ -72,7 +72,12 @@
     <!-- Content -->
     <div class="container">
       <h2>Formulir Data</h2>
-      <form enctype="multipart/form-data">
+      <form
+        id="multiple_section_form"
+        enctype="multipart/form-data"
+        name="upload-data"
+        method="post"
+      >
         <div class="row">
           <!-- Kolom 1 -->
           <div class="col-md-6">
@@ -83,6 +88,7 @@
                 class="form-control"
                 id="nama"
                 placeholder="Masukkan Nama"
+                name="nama"
               />
             </div>
             <div class="form-group">
@@ -93,11 +99,17 @@
                 id="nik"
                 maxlength="12"
                 placeholder="Max 12 karakter"
+                name="nik"
               />
             </div>
             <div class="form-group">
               <label for="tanggalLahir">Tanggal Lahir:</label>
-              <input type="date" class="form-control" id="tanggalLahir" />
+              <input
+                type="date"
+                class="form-control"
+                id="tanggalLahir"
+                name="tanggalLahir"
+              />
             </div>
             <div class="form-group">
               <label for="alamat">Alamat:</label>
@@ -106,25 +118,26 @@
                 id="alamat"
                 placeholder="Masukkan Alamat"
                 rows="3"
+                name="alamat"
               ></textarea>
             </div>
             <div class="form-group">
               <label for="provinsi">Provinsi:</label>
-              <select class="form-control" id="provinsi">
+              <select class="form-control" id="provinsi" name="provinsi">
                 <option>-- Pilih Provinsi --</option>
                 <!-- Tambahkan opsi provinsi sesuai kebutuhan -->
               </select>
             </div>
             <div class="form-group">
               <label for="kabupaten">Kabupaten/Kota:</label>
-              <select class="form-control" id="kabupaten">
+              <select class="form-control" id="kabupaten" name="kabupaten">
                 <option>-- Pilih Kabupaten/Kota --</option>
                 <!-- Tambahkan opsi kabupaten/kota sesuai kebutuhan -->
               </select>
             </div>
             <div class="form-group">
               <label for="kecamatan">Kecamatan:</label>
-              <select class="form-control" id="kecamatan">
+              <select class="form-control" id="kecamatan" name="kecamatan">
                 <option>-- Pilih Kecamatan --</option>
                 <!-- Tambahkan opsi kecamatan sesuai kebutuhan -->
               </select>
@@ -140,6 +153,7 @@
                 class="form-control"
                 id="nomorHp"
                 placeholder="Masukkan Nomor HP"
+                name="nomorHp"
               />
             </div>
             <div class="form-group">
@@ -149,6 +163,7 @@
                 class="form-control"
                 id="email"
                 placeholder="Masukkan Email"
+                name="email"
               />
             </div>
             <div class="form-group">
@@ -177,7 +192,11 @@
 
             <div class="form-group">
               <label for="tingkatPendidikan">Tingkat Pendidikan:</label>
-              <select class="form-control" id="tingkatPendidikan">
+              <select
+                class="form-control"
+                id="tingkatPendidikan"
+                name="tingkatPendidikan"
+              >
                 <option value="">-- Pilih Tingkat Pendidikan --</option>
                 <option value="SD">SD Sederajat</option>
                 <option value="SMP">SMP Sederajat</option>
@@ -191,7 +210,12 @@
             </div>
             <div class="form-group">
               <label for="uploadFoto">Upload Foto:</label>
-              <input type="file" class="form-control-file" id="uploadFoto" />
+              <input
+                type="file"
+                class="form-control-file"
+                id="uploadFoto"
+                name="uploadFoto"
+              />
             </div>
             <div class="form-group">
               <label for="uploadDokumen">Upload Dokumen:</label>
@@ -200,6 +224,7 @@
                 class="form-control-file"
                 id="uploadDokumen"
                 multiple
+                name="uploadDokumen[]"
               />
             </div>
             <div class="form-check">
