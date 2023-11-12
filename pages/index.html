@@ -208,16 +208,17 @@
                 <!-- Tambahkan opsi tingkat pendidikan sesuai kebutuhan -->
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="single-docs">
               <label for="uploadFoto">Upload Foto:</label>
               <input
                 type="file"
                 class="form-control-file"
                 id="uploadFoto"
                 name="uploadFoto"
+                style="color: transparent; overflow: hidden"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group" id="multi-docs">
               <label for="uploadDokumen">Upload Dokumen:</label>
               <input
                 type="file"
@@ -225,6 +226,7 @@
                 id="uploadDokumen"
                 multiple
                 name="uploadDokumen[]"
+                style="color: transparent; overflow: hidden"
               />
             </div>
             <div class="form-check">
@@ -238,17 +240,16 @@
                 benar.</label
               >
             </div>
+            <!-- Tombol Submit dan Reset -->
+            <div class="text-left mt-3">
+              <button type="button" id="submit" class="btn btn-primary">
+                Submit
+              </button>
+              <button type="reset" id="reset" class="btn btn-secondary">
+                Reset
+              </button>
+            </div>
           </div>
-        </div>
-
-        <!-- Tombol Submit dan Reset -->
-        <div class="text-right">
-          <button type="button" id="submit" class="btn btn-primary">
-            Submit
-          </button>
-          <button type="reset" id="reset" class="btn btn-secondary">
-            Reset
-          </button>
         </div>
       </form>
     </div>

@@ -109,4 +109,22 @@ $(document).ready(function() {
             });
         });
     });
+
+    $("#uploadFoto").on( "change", function() {
+        let parent = $('#single-docs')
+        let html = '<ul>';
+        html += '<li><span class="badge badge-success">' + this.files[0].name + '</span></li>';
+        html += '</ul>'
+        parent.append(html);
+    });
+
+    $("#uploadDokumen").on( "change", function() {
+        let parent = $('#multi-docs')
+        let html = '<ul>';
+        for (var i = 0; i <  $('#uploadDokumen')[0].files.length; ++i) {
+           html += '<li><span class="badge badge-success">' +  $('#uploadDokumen')[0].files[i].name + '</span></li>';
+        }
+        html += '</ul>'
+        parent.append(html);
+    });
 });
